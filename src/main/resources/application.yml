@@ -1,0 +1,124 @@
+# server:
+#   servlet:
+#     context-path: /
+#   port: 8080
+
+# spring:
+#   application:
+#     name: api-gateway-service
+#   cloud:
+#     gateway:
+#       httpclient:
+#         connect-timeout: 20000
+#         response-timeout: 7s
+#       routes:
+#         - id: calendar-service
+#           uri: https://dev.frolovinr.com
+#           predicates:
+#             - Path=/service/calendar/v3/api-docs
+#           filters:
+#             - StripPrefix=1
+#         - id: socialNetwork-service
+#           uri: https://dev.frolovinr.com
+#           predicates:
+#             - Path=/service/socialNetwork/v3/api-docs
+#           filters:
+#             - StripPrefix=1
+#         - id: id-service
+#           uri: https://dev.frolovinr.com
+#           predicates:
+#             - Path=/service/id/v3/api-docs
+#           filters:
+#             - StripPrefix=1
+
+# springdoc:
+#   enable-native-support: true
+#   api-docs:
+#     enabled: true
+#   swagger-ui:
+#     enabled: true
+#     path: /swagger-ui.html
+#     config-url: /v3/api-docs/swagger-config
+#     urls:
+#       - url: /v3/api-docs
+#         name: API Gateway Service
+#         primaryName: API Gateway Service
+#       - url: /service/calendar/v3/api-docs
+#         name: Calendar Service
+#         primaryName: Calendar Service
+#       - url: /service/socialNetwork/v3/api-docs
+#         name: Social Network Service
+#         primaryName: Social Network Service
+#       - url: /service/id/v3/api-docs
+#         name: ID Service
+#         primaryName: ID Service
+
+# eureka:
+#   client:
+#     register-with-eureka: true
+#     fetch-registry: true
+#   instance:
+#     hostname: localhost
+
+
+server:
+  servlet:
+    context-path: /
+  port: ${SERVER_PORT}
+
+spring:
+  application:
+    name: api-gateway-service
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 20000
+        response-timeout: 7s
+      routes:
+        - id: calendar-service
+          uri: https://dev.frolovinr.com
+          predicates:
+            - Path=/service/calendar/v3/api-docs
+          filters:
+            - StripPrefix=1
+        - id: socialNetwork-service
+          uri: https://dev.frolovinr.com
+          predicates:
+            - Path=/service/socialNetwork/v3/api-docs
+          filters:
+            - StripPrefix=1
+        - id: id-service
+          uri: https://dev.frolovinr.com
+          predicates:
+            - Path=/service/id/v3/api-docs
+          filters:
+            - StripPrefix=1
+
+springdoc:
+  enable-native-support: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /v3/api-docs
+        name: API Gateway Service
+        primaryName: API Gateway Service
+      - url: /service/calendar/v3/api-docs
+        name: Calendar Service
+        primaryName: Calendar Service
+      - url: /service/socialNetwork/v3/api-docs
+        name: Social Network Service
+        primaryName: Social Network Service
+      - url: /service/id/v3/api-docs
+        name: ID Service
+        primaryName: ID Service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: ${EUREKA_HOST}
