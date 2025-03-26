@@ -62,7 +62,7 @@ springdoc:
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_CONNECT_HOST}
+      defaultZone: http://${EUREKA_CONNECT_HOST}:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
   instance:
