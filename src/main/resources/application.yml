@@ -53,12 +53,7 @@ springdoc:
         name: ID Service
         primaryName: ID Service
 
-# eureka:
-#   client:
-#     register-with-eureka: true
-#     fetch-registry: true
-#   instance:
-#     hostname: ${EUREKA_HOST}
+
 eureka:
   client:
     service-url:
