@@ -30,6 +30,12 @@ spring:
             - Path=/service/id/v3/api-docs
           filters:
             - StripPrefix=1
+        - id: screener-service
+          uri: https://dev.frolovinr.com
+          predicates:
+            - Path=/service/screener/v3/api-docs
+          filters:
+            - StripPrefix=1
 
 springdoc:
   enable-native-support: true
@@ -52,6 +58,9 @@ springdoc:
       - url: /service/id/v3/api-docs
         name: ID Service
         primaryName: ID Service
+      - url: /service/screener/v3/api-docs
+        name: Screener Service
+        primaryName: Screener Service
 
 
 eureka:

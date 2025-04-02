@@ -41,6 +41,7 @@ public class ApigatewayApplication {
 		.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
 		.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
 		.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
+		.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
 		.build();
 	}
 }
