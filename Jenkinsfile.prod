@@ -192,7 +192,7 @@ podTemplate(yaml: podYaml) {
                         -e BASE_API_URL=http://iup-service.iup.svc.cluster.local:8000 \
                         -e FILE_PATH=/app/devOps/infrastructure/swagger/deployment-gateway.yml \
                         -e NEW_IMAGE=${env.IMAGE_NAME}:${env.BUILD_TIMESTAMP} \
-                        -e SERVICE_NAME=id \
+                        -e SERVICE_NAME=swagger-gateway \
                         -e CHAT_ID=${CHAT_ID} \
                         -e REPO_URL=github.com/frolovInR/devOps.git \
                         -e BRANCH=master \
