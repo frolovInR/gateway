@@ -33,7 +33,7 @@ podTemplate(yaml: podYaml) {
 
         stage('Get build time') {
 
-            container('docker-id-prod'){
+            container('docker-backend-prod'){
 
                 script {
                     env.BUILD_TAG = "${env.BUILD_TIMESTAMP}"
@@ -45,7 +45,7 @@ podTemplate(yaml: podYaml) {
 
         stage('Checkout') {
 
-            container('docker-id-prod'){
+            container('docker-backend-prod'){
 
                 script {
                 withCredentials([usernamePassword(credentialsId: env.GITHUB_CREDENTIALS_ID, usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_TOKEN')]) {
@@ -69,7 +69,7 @@ podTemplate(yaml: podYaml) {
         }
         stage('Build Docker Image') {
 
-            container('docker-id-prod'){
+            container('docker-backend-prod'){
                 script {
                     sh """
                     docker build . -f ${DOCKER_FILE} -t ${env.IMAGE_NAME}:${env.BUILD_TIMESTAMP}
@@ -81,7 +81,7 @@ podTemplate(yaml: podYaml) {
         }
 
         stage('Tag Docker Image') {
-            container('docker-id-prod'){
+            container('docker-backend-prod'){
                 script {
                     sh """
                     docker tag ${env.IMAGE_NAME}:${env.BUILD_TIMESTAMP} ${env.IMAGE_NAME}:latest
@@ -97,7 +97,7 @@ podTemplate(yaml: podYaml) {
             parallel (
 
                 'Lint Dockerfile': {
-                    container('docker-id-prod'){
+                    container('docker-backend-prod'){
 
                         script {
                             sh '''
@@ -110,7 +110,7 @@ podTemplate(yaml: podYaml) {
                 },
                 'Analyze Image with Dive': {
 
-                    container('docker-id-prod'){
+                    container('docker-backend-prod'){
                         script {
                             sh '''
                             docker run --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive $IMAGE_NAME:latest --ci > $REPORTS_DIR/dive_report.txt || true
@@ -119,7 +119,7 @@ podTemplate(yaml: podYaml) {
                     }
                 },
                 'Scan for Vulnerabilities with Trivy':{
-                    container('docker-id-prod'){
+                    container('docker-backend-prod'){
 
                         script {
                             sh '''
@@ -139,7 +139,7 @@ podTemplate(yaml: podYaml) {
             parallel (
 
                 "build":{
-                    container('docker-id-prod'){
+                    container('docker-backend-prod'){
                         script {
                             withCredentials([usernamePassword(credentialsId: env.GHCR_CREDENTIALS_ID, usernameVariable: 'GHCR_USER', passwordVariable: 'GHCR_TOKEN')]) {
                                 sh """
@@ -151,7 +151,7 @@ podTemplate(yaml: podYaml) {
                     }
                 },
                 "latest":{
-                    container('docker-id-prod'){
+                    container('docker-backend-prod'){
                         script {
                             withCredentials([usernamePassword(credentialsId: env.GHCR_CREDENTIALS_ID, usernameVariable: 'GHCR_USER', passwordVariable: 'GHCR_TOKEN')]) {
                                 sh """
@@ -167,7 +167,7 @@ podTemplate(yaml: podYaml) {
 
 
         stage('Pull iup client') {
-            container('docker-id-prod'){
+            container('docker-backend-prod'){
                 script {
                     withCredentials([usernamePassword(credentialsId: env.GHCR_CREDENTIALS_ID, usernameVariable: 'GHCR_USER', passwordVariable: 'GHCR_TOKEN')]) {
                         sh """
@@ -180,7 +180,7 @@ podTemplate(yaml: podYaml) {
         }
 
         stage('Run iup client') {
-            container('docker-id-prod'){
+            container('docker-backend-prod'){
                 script {
 
                     withCredentials([
