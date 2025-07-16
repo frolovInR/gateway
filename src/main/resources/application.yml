@@ -36,6 +36,12 @@ spring:
             - Path=/service/screener/v3/api-docs
           filters:
             - StripPrefix=1
+        - id: portfolio-service
+          uri: https://dev.frolovinr.com
+          predicates:
+            - Path=/service/portfolio/v3/api-docs
+          filters:
+            - StripPrefix=1
 
 springdoc:
   enable-native-support: true
@@ -61,7 +67,9 @@ springdoc:
       - url: /service/screener/v3/api-docs
         name: Screener Service
         primaryName: Screener Service
-
+      - url: /service/portfolio/v3/api-docs
+        name: Portfolio Service
+        primaryName: Portfolio Service
 
 eureka:
   client:
@@ -71,4 +79,3 @@ eureka:
     fetch-registry: true
   instance:
     hostname: ${EUREKA_HOST}
-

@@ -28,20 +28,21 @@ import io.swagger.v3.oas.annotations.info.Info;
 @EnableDiscoveryClient
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(title = "API Gateway", version = "1.0", description = "Documentation API Gateway v1.0"))
-
 public class ApigatewayApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApigatewayApplication.class, args);
 	}
+
 	@Bean
 	public RouteLocator routeLocator(RouteLocatorBuilder builder) {
-	return builder
-		.routes()
-		.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
-		.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
-		.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
-		.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
-		.build();
+		return builder
+				.routes()
+				.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
+				.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
+				.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
+				.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
+				.route(r -> r.path("/service/portfolio/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
+				.build();
 	}
 }
