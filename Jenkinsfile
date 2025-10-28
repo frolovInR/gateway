@@ -51,7 +51,7 @@ spec:
             steps {
                 container('docker-backend-main'){
                     script {
-                        if (env.BRANCH_NAME == 'dev') {
+                        if (env.BRANCH_NAME == 'develop') {
                             // Загружаем Jenkinsfile для стейджинг-среды
                             echo "Loading Jenkinsfile.dev for branch: ${env.BRANCH_NAME}"
                             load 'Jenkinsfile.dev'  // Подгрузка Jenkinsfile.dev
