@@ -38,11 +38,11 @@ public class ApigatewayApplication {
 	public RouteLocator routeLocator(RouteLocatorBuilder builder) {
 		return builder
 				.routes()
-				.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
-				.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
-				.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
-				.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
-				.route(r -> r.path("/service/portfolio/v3/api-docs").and().method(HttpMethod.GET).uri("https://dev.frolovinr.com"))
+				.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
+				.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
+				.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
+				.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
+				.route(r -> r.path("/service/portfolio/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
 				.build();
 	}
 }
