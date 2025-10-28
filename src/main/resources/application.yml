@@ -55,19 +55,19 @@ springdoc:
       - url: /v3/api-docs
         name: API Gateway Service
         primaryName: API Gateway Service
-      - url: https://swagger.devfrolov.ru/service/calendar/v3/api-docs
+      - url: /service/calendar/v3/api-docs
         name: Calendar Service
         primaryName: Calendar Service
-      - url: https://swagger.devfrolov.ru/service/socialNetwork/v3/api-docs
+      - url: /service/socialNetwork/v3/api-docs
         name: Social Network Service
         primaryName: Social Network Service
-      - url: https://swagger.devfrolov.ru/service/id/v3/api-docs
+      - url: /service/id/v3/api-docs
         name: ID Service
         primaryName: ID Service
-      - url: https://swagger.devfrolov.ru/service/screener/v3/api-docs
+      - url: /service/screener/v3/api-docs
         name: Screener Service
         primaryName: Screener Service
-      - url: https://swagger.devfrolov.ru/service/portfolio/v3/api-docs
+      - url: /service/portfolio/v3/api-docs
         name: Portfolio Service
         primaryName: Portfolio Service
 
