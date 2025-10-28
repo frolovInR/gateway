@@ -13,31 +13,31 @@ spring:
         response-timeout: 7s
       routes:
         - id: calendar-service
-          uri: https://dev.frolovinr.com
+          uri: https://swagger.devfrolov.ru
           predicates:
             - Path=/service/calendar/v3/api-docs
           filters:
             - StripPrefix=1
         - id: socialNetwork-service
-          uri: https://dev.frolovinr.com
+          uri: https://swagger.devfrolov.ru
           predicates:
             - Path=/service/socialNetwork/v3/api-docs
           filters:
             - StripPrefix=1
         - id: id-service
-          uri: https://dev.frolovinr.com
+          uri: https://swagger.devfrolov.ru
           predicates:
             - Path=/service/id/v3/api-docs
           filters:
             - StripPrefix=1
         - id: screener-service
-          uri: https://dev.frolovinr.com
+          uri: https://swagger.devfrolov.ru
           predicates:
             - Path=/service/screener/v3/api-docs
           filters:
             - StripPrefix=1
         - id: portfolio-service
-          uri: https://dev.frolovinr.com
+          uri: https://swagger.devfrolov.ru
           predicates:
             - Path=/service/portfolio/v3/api-docs
           filters:
@@ -55,19 +55,19 @@ springdoc:
       - url: /v3/api-docs
         name: API Gateway Service
         primaryName: API Gateway Service
-      - url: /service/calendar/v3/api-docs
+      - url: https://swagger.devfrolov.ru/service/calendar/v3/api-docs
         name: Calendar Service
         primaryName: Calendar Service
-      - url: /service/socialNetwork/v3/api-docs
+      - url: https://swagger.devfrolov.ru/service/socialNetwork/v3/api-docs
         name: Social Network Service
         primaryName: Social Network Service
-      - url: /service/id/v3/api-docs
+      - url: https://swagger.devfrolov.ru/service/id/v3/api-docs
         name: ID Service
         primaryName: ID Service
-      - url: /service/screener/v3/api-docs
+      - url: https://swagger.devfrolov.ru/service/screener/v3/api-docs
         name: Screener Service
         primaryName: Screener Service
-      - url: /service/portfolio/v3/api-docs
+      - url: https://swagger.devfrolov.ru/service/portfolio/v3/api-docs
         name: Portfolio Service
         primaryName: Portfolio Service
 
