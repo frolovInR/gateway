@@ -38,11 +38,16 @@ public class ApigatewayApplication {
 	public RouteLocator routeLocator(RouteLocatorBuilder builder) {
 		return builder
 				.routes()
-				.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
-				.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
-				.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
-				.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
-				.route(r -> r.path("/service/portfolio/v3/api-docs").and().method(HttpMethod.GET).uri("https://devfrolov.ru"))
+				.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://devfrolov.ru/service/calendar/v3/api-docs"))
+				.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://devfrolov.ru/service/socialNetwork/v3/api-docs"))
+				.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://devfrolov.ru/service/id/v3/api-docs"))
+				.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://devfrolov.ru/service/screener/v3/api-docs"))
+				.route(r -> r.path("/service/portfolio/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://devfrolov.ru/service/portfolio/v3/api-docs"))
 				.build();
 	}
 }
