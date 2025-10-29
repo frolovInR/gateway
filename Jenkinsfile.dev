@@ -26,7 +26,7 @@ podTemplate(yaml: podYaml) {
         env.IMAGE_NAME = 'ghcr.io/frolovinr/swagger-gateway'
         env.REPO_URL = 'https://github.com/frolovInR/gateway.git'
         env.DOCKER_FILE = 'Dockerfile'
-        env.BRANCH_NAME = '*/master'
+        env.BRANCH_NAME = '*/develop'
         env.REPORTS_DIR = "reports"
 
 
