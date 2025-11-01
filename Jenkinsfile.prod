@@ -23,7 +23,7 @@ podTemplate(yaml: podYaml) {
 
         env.GITHUB_CREDENTIALS_ID = 'github-credentials-id' // ID для GitHub в Jenkins
         env.GHCR_CREDENTIALS_ID = 'ghcr-credentials-id'     // ID для GHCR в Jenkins
-        env.IMAGE_NAME = 'ghcr.io/frolovinr/swagger-gateway'
+        env.IMAGE_NAME = 'ghcr.io/frolovinr/swagger-gateway-prod'
         env.REPO_URL = 'https://github.com/frolovInR/gateway.git'
         env.DOCKER_FILE = 'Dockerfile'
         env.BRANCH_NAME = '*/master'
@@ -190,9 +190,9 @@ podTemplate(yaml: podYaml) {
                         sh """
                     	docker run --rm \
                         -e BASE_API_URL=http://iup-service.iup.svc.cluster.local:8000 \
-                        -e FILE_PATH=/app/devOps/infrastructure/swagger/deployment-gateway.yml \
+                        -e FILE_PATH=/app/devOps/apps/prodaction/swagger/deployment-gateway.yml \
                         -e NEW_IMAGE=${env.IMAGE_NAME}:${env.BUILD_TIMESTAMP} \
-                        -e SERVICE_NAME=swagger-gateway \
+                        -e SERVICE_NAME=swagger-gateway-prod \
                         -e CHAT_ID=${CHAT_ID} \
                         -e REPO_URL=github.com/frolovInR/devOps.git \
                         -e BRANCH=master \
