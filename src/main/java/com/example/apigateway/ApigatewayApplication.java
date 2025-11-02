@@ -34,7 +34,6 @@ public class ApigatewayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApigatewayApplication.class, args);
 	}
-
 	@Bean
 	public RouteLocator routeLocator(RouteLocatorBuilder builder, @Value("${DOMAIN}") String domain) {
 		return builder
