@@ -3,6 +3,9 @@ server:
     context-path: /
   port: ${SERVER_PORT}
 
+base:
+  domain: ${DOMAIN}
+
 spring:
   application:
     name: api-gateway-service
@@ -13,31 +16,31 @@ spring:
         response-timeout: 7s
       routes:
         - id: calendar-service
-          uri: https://dev.frolovinr.com
+          uri: https://${base.domain}
           predicates:
             - Path=/service/calendar/v3/api-docs
           filters:
             - StripPrefix=1
         - id: socialNetwork-service
-          uri: https://dev.frolovinr.com
+          uri: https://${base.domain}
           predicates:
             - Path=/service/socialNetwork/v3/api-docs
           filters:
             - StripPrefix=1
         - id: id-service
-          uri: https://dev.frolovinr.com
+          uri: https://${base.domain}
           predicates:
             - Path=/service/id/v3/api-docs
           filters:
             - StripPrefix=1
         - id: screener-service
-          uri: https://dev.frolovinr.com
+          uri: https://${base.domain}
           predicates:
             - Path=/service/screener/v3/api-docs
           filters:
             - StripPrefix=1
         - id: portfolio-service
-          uri: https://dev.frolovinr.com
+          uri: https://${base.domain}
           predicates:
             - Path=/service/portfolio/v3/api-docs
           filters:

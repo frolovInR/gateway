@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -35,7 +36,7 @@ public class ApigatewayApplication {
 	}
 
 	@Bean
-	public RouteLocator routeLocator(RouteLocatorBuilder builder) {
+	public RouteLocator routeLocator(RouteLocatorBuilder builder, @Value("${DOMAIN}") String domain) {
 		return builder
 				.routes()
 				.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET).uri("https://frolovinr.com"))
