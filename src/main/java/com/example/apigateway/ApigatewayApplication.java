@@ -34,16 +34,20 @@ public class ApigatewayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApigatewayApplication.class, args);
 	}
-
 	@Bean
 	public RouteLocator routeLocator(RouteLocatorBuilder builder, @Value("${DOMAIN}") String domain) {
 		return builder
 				.routes()
-				.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET).uri("https://frolovinr.com"))
-				.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET).uri("https://frolovinr.com"))
-				.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET).uri("https://frolovinr.com"))
-				.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET).uri("https://frolovinr.com"))
-				.route(r -> r.path("/service/portfolio/v3/api-docs").and().method(HttpMethod.GET).uri("https://frolovinr.com"))
+				.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://" + domain + "/service/calendar/v3/api-docs"))
+				.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://" + domain + "/service/socialNetwork/v3/api-docs"))
+				.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://" + domain + "/service/id/v3/api-docs"))
+				.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://" + domain + "/service/screener/v3/api-docs"))
+				.route(r -> r.path("/service/portfolio/v3/api-docs").and().method(HttpMethod.GET)
+						.uri("https://" + domain + "/service/portfolio/v3/api-docs"))
 				.build();
 	}
 }
