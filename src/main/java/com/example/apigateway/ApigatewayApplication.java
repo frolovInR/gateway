@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -35,19 +36,19 @@ public class ApigatewayApplication {
 	}
 
 	@Bean
-	public RouteLocator routeLocator(RouteLocatorBuilder builder) {
+	public RouteLocator routeLocator(RouteLocatorBuilder builder, @Value("${DOMAIN}") String domain) {
 		return builder
 				.routes()
 				.route(r -> r.path("/service/calendar/v3/api-docs").and().method(HttpMethod.GET)
-						.uri("https://devfrolov.ru/service/calendar/v3/api-docs"))
+						.uri("https://" + domain + "/service/calendar/v3/api-docs"))
 				.route(r -> r.path("/service/socialNetwork/v3/api-docs").and().method(HttpMethod.GET)
-						.uri("https://devfrolov.ru/service/socialNetwork/v3/api-docs"))
+						.uri("https://" + domain + "/service/socialNetwork/v3/api-docs"))
 				.route(r -> r.path("/service/id/v3/api-docs").and().method(HttpMethod.GET)
-						.uri("https://devfrolov.ru/service/id/v3/api-docs"))
+						.uri("https://" + domain + "/service/id/v3/api-docs"))
 				.route(r -> r.path("/service/screener/v3/api-docs").and().method(HttpMethod.GET)
-						.uri("https://devfrolov.ru/service/screener/v3/api-docs"))
+						.uri("https://" + domain + "/service/screener/v3/api-docs"))
 				.route(r -> r.path("/service/portfolio/v3/api-docs").and().method(HttpMethod.GET)
-						.uri("https://devfrolov.ru/service/portfolio/v3/api-docs"))
+						.uri("https://" + domain + "/service/portfolio/v3/api-docs"))
 				.build();
 	}
 }
