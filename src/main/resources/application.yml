@@ -73,6 +73,7 @@ springdoc:
       - url: /service/portfolio/v3/api-docs
         name: Portfolio Service
         primaryName: Portfolio Service
+    operations-sorter: method
 
 eureka:
   client:
